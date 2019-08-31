@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block body %}
+    {{ message }}
+    <br>
+    <br>
+
+    {% if session.username %}
+
+    <a href="{{ url_for('books') }}" class="btn btn-outline-dark" role="button" aria-pressed="true">Go to all books</a>
+
+    {% endif %}
+{% endblock %}

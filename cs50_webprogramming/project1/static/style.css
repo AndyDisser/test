@@ -1,0 +1,29 @@
+.navbar-nav.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%); }
+
+*[data-href] {
+  cursor: pointer; }
+
+td a {
+  display: inline-block;
+  min-height: 100%;
+  width: 100%;
+  padding: 10px;
+  /* add your padding here */ }
+
+td {
+  padding: 10px; }
+
+.buecher tr:hover {
+  background-color: #ddd; }
+
+th {
+  padding: 10px; }
+
+.jumbotron .container {
+  display: grid;
+  grid-template-columns: auto auto; }
+
+/*# sourceMappingURL=style.css.map */

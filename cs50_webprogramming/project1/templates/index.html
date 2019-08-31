@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+
+<div id="index_heading">
+    <h1>CS50 Web Project1 Book Page</h1>
+</div>
+
+{% if registered is defined %}
+
+<div class="alert alert-info" role="alert">
+  You are now registered and can login!
+</div>
+
+{% endif %}
+{% if wrong is defined %}
+
+<div class="alert alert-danger" role="alert">
+  {{ message }}
+</div>
+
+{% endif %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+
+            <h2>You have already an account?</h2>
+            <form class="" action="{{ url_for('login') }}" method="post">
+                <legend>Login</legend>
+                <input type="text" name="username_login" placeholder="username">
+                <input type="password" name="password_login" placeholder="password">
+                <input type="submit" name="submit_login" value="Login">
+            </form>
+
+        </div>
+        <div class="col-sm-12 col-lg-6">
+
+            <h2>You are new to the page?</h2>
+            <form class="" action="{{ url_for('register') }}" method="post">
+                <legend>Register</legend>
+                <input type="text" name="username_register" placeholder="username">
+                <input type="password" name="password_register" placeholder="password">
+                <input type="submit" name="submit_register" value="Register">
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

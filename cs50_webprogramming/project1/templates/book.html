@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block title %}
+{{ book.title }}
+{% endblock %}
+{% block body %}
+<table class="table">
+
+    <tr>
+        <td>isbn</td>
+        <td>{{ book.isbn }}</td>
+    </tr>
+    <tr>
+        <td>title</td>
+        <td>{{ book.title }}</td>
+    </tr>
+    <tr>
+        <td>author</td>
+        <td>{{ book.author }}</td>
+    </tr>
+    <tr>
+        <td>year</td>
+        <td>{{ book.year }}</td>
+    </tr>
+</table>
+<br>
+<table class="table">
+    <tr>
+        <th>Data from Goodreads:</th>
+    </tr>
+    <tr>
+        <td>average rating</td>
+        <td>{{ average_rating }}</td>
+    </tr>
+    <tr>
+        <td>number of reviews</td>
+        <td>{{ work_ratings_count }}</td>
+    </tr>
+
+</table>
+<br><br>
+<table class="table">
+    <tr>
+        <th>User</th>
+        <th>Rating</th>
+        <th>Review</th>
+    </tr>
+
+    {% for review in reviews %}
+    <tr>
+        <td>{{ review.username }}</td>
+        <td>{{ review.rating }}</td>
+        <td>{{ review.review }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+<br>
+<h1>{{ test }}</h1>
+{% if not review_logged_in %}
+<form class="needs-validation" action="{{ url_for('book', isbn= book.isbn) }}" method="post">
+    <div class="form-group">
+    <label for="new_review">Write your own review:</label>
+    <textarea class="form-control" name="new_review" rows="8" required></textarea>
+    <select class="custom-select" name="rating" value="1" required>
+        <option value="1">1 Star</option>
+        <option value="2">2 Star</option>
+        <option value="3">3 Star</option>
+        <option value="4">4 Star</option>
+        <option value="5">5 Star</option>
+    </select>
+    <br>
+    <input type="submit" name="submit_review">
+    </div>
+</form>
+{% endif %}
+{% endblock %}
